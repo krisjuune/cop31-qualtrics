@@ -1,0 +1,7 @@
+Task,"Field 1 (row 1, A)","Field 2 (row 1, B)","Field 3 (row 2, A)","Field 4 (row 2, B)","Field 5 (row 3, A)","Field 6 (row 3, B)"
+1,${e://Field/__js_task1_row1_a},${e://Field/__js_task1_row1_b},${e://Field/__js_task1_row2_a},${e://Field/__js_task1_row2_b},${e://Field/__js_task1_row3_a},${e://Field/__js_task1_row3_b}
+2,${e://Field/__js_task2_row1_a},${e://Field/__js_task2_row1_b},${e://Field/__js_task2_row2_a},${e://Field/__js_task2_row2_b},${e://Field/__js_task2_row3_a},${e://Field/__js_task2_row3_b}
+3,${e://Field/__js_task3_row1_a},${e://Field/__js_task3_row1_b},${e://Field/__js_task3_row2_a},${e://Field/__js_task3_row2_b},${e://Field/__js_task3_row3_a},${e://Field/__js_task3_row3_b}
+4,${e://Field/__js_task4_row1_a},${e://Field/__js_task4_row1_b},${e://Field/__js_task4_row2_a},${e://Field/__js_task4_row2_b},${e://Field/__js_task4_row3_a},${e://Field/__js_task4_row3_b}
+5,${e://Field/__js_task5_row1_a},${e://Field/__js_task5_row1_b},${e://Field/__js_task5_row2_a},${e://Field/__js_task5_row2_b},${e://Field/__js_task5_row3_a},${e://Field/__js_task5_row3_b}
+6,${e://Field/__js_task6_row1_a},${e://Field/__js_task6_row1_b},${e://Field/__js_task6_row2_a},${e://Field/__js_task6_row2_b},${e://Field/__js_task6_row3_a},${e://Field/__js_task6_row3_b}

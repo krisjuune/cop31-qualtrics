@@ -1,0 +1,94 @@
+<!--
+  COP31 survey – choice task (question text, HTML view)
+  Paste into the question text of the multiple-choice question in the
+  looped block. Answer options: "Package A" and "Package B" (force response).
+
+  ${lm://Field/1} … ${lm://Field/6} are the six Loop & Merge fields:
+    1 = row 1, package a    2 = row 1, package b
+    3 = row 2, package a    4 = row 2, package b
+    5 = row 3, package a    6 = row 3, package b
+
+  Font and colour are inherited from the survey theme. The text size of the
+  header row (Package A / B) is 18px, matching the question text; attribute
+  names, levels and descriptions are 14px, matching the answer options. Both
+  sizes are set at the top of the style block (--cop-head, --cop-body).
+  On screens wider than 600 px, each attribute name is shown with its
+  description underneath. On phones, only the name is shown (marked with an
+  info symbol); tapping it expands the description. This is done with CSS
+  only, so no question JavaScript is needed.
+-->
+<style>
+  /* Text sizes. --cop-head (header row: Package A / B) matches the survey's "Question Text (px)";
+     --cop-body (attribute names, levels and descriptions) matches "Answer Text (px)".
+     If you change those settings in the Look & Feel, change these numbers to match. */
+  .cop-task { --cop-head: 18px; --cop-body: 14px; }
+
+  .cop-task, .cop-task * { font-family: inherit; color: inherit; }
+  .cop-task { text-align: center; }
+  .cop-task .task-title { font-size: calc(var(--cop-head) * 1.2) !important; font-weight: 700 !important; margin: 10px 0 14px 0; }
+  .cop-table { width: 100%; table-layout: fixed; border-collapse: collapse; line-height: 1.4; }
+  .cop-table td, .cop-table td *,
+  .cop-table summary, .cop-table .desc { font-size: var(--cop-body) !important; }
+  .cop-table .toprow td, .cop-table .toprow td * { font-size: var(--cop-head) !important; }
+  .cop-table td { padding: 8px; text-align: left; vertical-align: top; overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }
+  .cop-table .toprow td { border-bottom: 2px solid #999; }
+  .cop-table .toprow td, .cop-table .toprow td * { font-weight: 700 !important; }
+  .cop-table .normalrow td { border-bottom: 1px solid #ccc; }
+  .cop-table td.name, .cop-table td.name summary, .cop-table td.name .attr-name { font-weight: 700 !important; }
+  .cop-table td.name details summary { cursor: pointer; list-style: none; }
+  .cop-table td.name details summary::-webkit-details-marker { display: none; }
+  .cop-table td.name details summary::after { content: " \24D8"; font-weight: 400 !important; opacity: 0.6; }
+  .cop-table td.name details[open] summary::after { content: ""; }
+  .cop-table .desc { display: block; font-weight: 400 !important; margin-top: 6px; }
+  /* Wide screens: name and description always visible. Phones: tap the name to expand. */
+  .cop-table .narrow-only { display: none; }
+  .cop-table .wide-only { display: block; }
+  @media (max-width: 600px) {
+    .cop-table td { padding: 6px 4px; }
+    .cop-table .wide-only { display: none; }
+    .cop-table .narrow-only { display: block; }
+  }
+</style>
+
+<div class="cop-task" lang="en">
+  <div class="task-title">${e://Field/__js_task_name} ${lm://CurrentLoopNumber} / ${lm://TotalLoops}</div>
+
+  <table class="cop-table">
+    <colgroup>
+      <col style="width: 40%;">
+      <col style="width: 30%;">
+      <col style="width: 30%;">
+    </colgroup>
+    <tbody>
+      <tr class="toprow">
+        <td>&nbsp;</td>
+        <td>${e://Field/__js_option_name} A</td>
+        <td>${e://Field/__js_option_name} B</td>
+      </tr>
+      <tr class="normalrow">
+        <td class="name">
+          <div class="wide-only"><span class="attr-name">${e://Field/__js_row1_name}</span><span class="desc">${e://Field/__js_row1_description}</span></div>
+          <details class="narrow-only"><summary>${e://Field/__js_row1_name}</summary><span class="desc">${e://Field/__js_row1_description}</span></details>
+        </td>
+        <td>${lm://Field/1}</td>
+        <td>${lm://Field/2}</td>
+      </tr>
+      <tr class="normalrow">
+        <td class="name">
+          <div class="wide-only"><span class="attr-name">${e://Field/__js_row2_name}</span><span class="desc">${e://Field/__js_row2_description}</span></div>
+          <details class="narrow-only"><summary>${e://Field/__js_row2_name}</summary><span class="desc">${e://Field/__js_row2_description}</span></details>
+        </td>
+        <td>${lm://Field/3}</td>
+        <td>${lm://Field/4}</td>
+      </tr>
+      <tr class="normalrow">
+        <td class="name">
+          <div class="wide-only"><span class="attr-name">${e://Field/__js_row3_name}</span><span class="desc">${e://Field/__js_row3_description}</span></div>
+          <details class="narrow-only"><summary>${e://Field/__js_row3_name}</summary><span class="desc">${e://Field/__js_row3_description}</span></details>
+        </td>
+        <td>${lm://Field/5}</td>
+        <td>${lm://Field/6}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
