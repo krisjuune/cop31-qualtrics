@@ -1,8 +1,10 @@
 // =====================================================================
 // COP31 survey – choice experiment set-up
 // ---------------------------------------------------------------------
-// WHERE: add this to the screen before experiment. The embedded data
-//        variables must be populated before entering the experiment part.
+// WHERE: add this to the scenario-text question (the screen shown just
+//        BEFORE the looped choice-task block). Embedded data set here is
+//        only available for piping on LATER pages, so it must not sit on
+//        the first choice task itself.
 //
 // WHAT IT DOES
 //   1. Sets the labels and descriptions of the three attributes.
@@ -23,7 +25,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
     var numChoice = 6;
 
     // -----------------------------
-    // LABELS
+    // LABELS (English)
     // -----------------------------
     var optionName = "Package";
     var taskName = "Task";
@@ -31,7 +33,7 @@ Qualtrics.SurveyEngine.addOnload(function () {
     var attributes = {
         finance: {
             name: "International climate finance",
-            description: "Money this country provides to help developing countries cut emissions and adapt to climate change, compared with today’s level.",
+            description: "Money this country gives to help developing countries cut emissions and adapt to climate change, compared with today.",
             levels: {
                 "cut25": "Cut by 25%",
                 "keep": "Kept at current level",
@@ -39,8 +41,8 @@ Qualtrics.SurveyEngine.addOnload(function () {
             }
         },
         priority: {
-            name: "Priority receiving the largest increase",
-            description: "The area of the budget that receives the most additional money in this package.",
+            name: "Policy area receiving extra funding",
+            description: "The area, other than climate finance, that gets the largest increase in this package.",
             levels: {
                 "defence": "Defence and national security",
                 "growth": "Economic growth, jobs and competitiveness",
@@ -50,12 +52,12 @@ Qualtrics.SurveyEngine.addOnload(function () {
             }
         },
         size: {
-            name: "Size of that increase",
-            description: "The additional yearly spending on that priority, as a share of the country’s GDP. Because the budget is fixed, it is paid for by savings elsewhere.",
+            name: "Extra funding for that area",
+            description: "How much more is spent on that area each year, as a share of the country’s economy (GDP).",
             levels: {
-                "0.5": "+0.5% of GDP",
-                "1.0": "+1.0% of GDP",
-                "1.5": "+1.5% of GDP"
+                "0.5": "+0.5% of GDP per year",
+                "1.0": "+1.0% of GDP per year",
+                "1.5": "+1.5% of GDP per year"
             }
         }
     };
